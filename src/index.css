@@ -1,0 +1,2582 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+body {
+  background: #000000 !important;
+  font-family: "Lato", sans-serif;
+  font-family: "Barlow", sans-serif !important;
+  cursor: url("./images/cursor.png"), auto;
+}
+#root {
+  max-width: 100vw;
+  overflow: hidden;
+}
+.navbar img {
+  width: 50px;
+  transition: 1s;
+}
+.navbar {
+  padding: 10px 20px;
+}
+
+.menuIcon {
+  cursor: pointer;
+  display: flex;
+}
+.menuIcon svg {
+  transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.navbar.active svg {
+  transform: rotate(90deg);
+}
+.menuIcon path {
+  transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1),
+    stroke-dasharray 500ms cubic-bezier(0.4, 0, 0.2, 1),
+    stroke-dashoffset 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.menuIcon path:nth-child(1) {
+  transform-origin: 36% 40%;
+}
+.menuIcon path:nth-child(2) {
+  stroke-dasharray: 29 299;
+}
+.menuIcon path:nth-child(3) {
+  transform-origin: 35% 63%;
+}
+.menuIcon path:nth-child(4) {
+  stroke-dasharray: 29 299;
+}
+.menuIcon path:nth-child(5) {
+  transform-origin: 61% 52%;
+}
+.menuIcon path:nth-child(6) {
+  transform-origin: 62% 52%;
+}
+.menuIconContainer .active path:nth-child(1) {
+  transform: translateX(9px) translateY(1px) rotate(45deg);
+}
+.menuIconContainer .active path:nth-child(2) {
+  stroke-dasharray: 225 299;
+  stroke-dashoffset: -72px;
+}
+.menuIconContainer .active path:nth-child(3) {
+  transform: translateX(9px) translateY(1px) rotate(-45deg);
+}
+.menuIconContainer .active path:nth-child(4) {
+  stroke-dasharray: 225 299;
+  stroke-dashoffset: -72px;
+}
+.menuIconContainer .active path:nth-child(5) {
+  transform: translateX(9px) translateY(1px) rotate(-45deg);
+}
+.menuIconContainer .active path:nth-child(6) {
+  transform: translateX(9px) translateY(1px) rotate(45deg);
+}
+
+.Banner {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden !important;
+  position: relative;
+}
+.Banner video {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+
+  z-index: 1;
+}
+
+.maskingLayer {
+  z-index: 3;
+  left: 0;
+  top: 0;
+  position: absolute;
+  background-color: #000000;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 1);
+  color: white;
+  font-size: 19vw; /* Responsive font size */
+  font-weight: 900;
+  font-family: "Barlow", sans-serif;
+  letter-spacing: 30px;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 300px;
+  mix-blend-mode: multiply; /* This makes the cutout text possible */
+}
+.startMovingAnim .maskingLayer {
+  animation: bgChange 5s;
+}
+@keyframes bgChange {
+  50% {
+    transform: scale(1.1);
+  }
+}
+.Banner .overlay {
+  padding: 0px;
+  height: 100%;
+  background: #feac5e; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #4bc0c8,
+    #c779d0,
+    #feac5e
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #4bc0c8,
+    #c779d0,
+    #feac5e
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  position: absolute;
+
+  bottom: -200%;
+
+  z-index: 2;
+}
+.startMovingAnim .overlay {
+  animation: move 10s ease;
+}
+@keyframes move {
+  45% {
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+  }
+  50% {
+    bottom: 0px;
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+
+    transform: skew(15deg, 15deg) scale(1.3);
+  }
+}
+
+.Banner .Welcometext {
+  color: #ffffff;
+  position: absolute;
+  top: 46%;
+  width: 100%;
+  text-align: center;
+  z-index: 4;
+  font-size: 20px;
+}
+.Banner .Welcometext h2 {
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  animation: chngcolor 10s infinite;
+  padding-top: 20px;
+  font-weight: 800;
+}
+@keyframes chngcolor {
+  50% {
+    color: #000000;
+    /* filter: blur(5px); */
+    letter-spacing: 20px;
+  }
+}
+
+.about {
+  background: #000000;
+  overflow: hidden;
+  position: relative;
+  padding: 0px;
+  min-height: 100vh;
+}
+.about canvas {
+  position: absolute;
+  top: 20%;
+  left: 0px;
+  z-index: 1;
+
+  animation: canvasAnim 5s infinite;
+}
+@keyframes canvasAnim {
+  50% {
+    /* filter: blur(5px); */
+
+    transform: scale(1.1) rotate(5deg);
+  }
+}
+.abtdesc {
+  position: relative;
+  width: 100%;
+  z-index: 2;
+  padding: 80px 10% !important;
+  color: #ffffff;
+}
+.abtimg {
+  width: fit-content;
+
+  margin-right: auto;
+  margin-left: auto;
+  padding: 30px 30px;
+  animation: jello 2s infinite ease;
+
+  background: -webkit-linear-gradient(
+    to right,
+    #4bc0c8,
+    #c779d0,
+    #feac5e
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #4bc0c8, #c779d0, #feac5e);
+}
+.abtdesc img {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+
+  object-fit: cover;
+}
+
+@keyframes jello {
+  0% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    background: linear-gradient(45deg, #88d5bf 0%, #5d6bf8 100%);
+  }
+
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    background: linear-gradient(45deg, #e27fcb 0%, #5d6bf8 100%);
+  }
+
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    background: linear-gradient(45deg, #88d5bf 0%, #5d6bf8 100%);
+  }
+}
+.about h1 {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 800;
+  margin-top: 20px;
+  color: #ffffff;
+  letter-spacing: 5px;
+}
+.about p {
+  color: #999999;
+  width: 55%;
+  margin: 0px auto;
+  text-align: center;
+}
+.homePortfolio {
+  padding: 100px 10px;
+  position: relative;
+  overflow: hidden;
+}
+.marsImage {
+  position: absolute;
+  width: 30vw;
+
+  top: 20%;
+  transition: 0.5s;
+}
+.homePortfolio h2 {
+  position: relative;
+  text-align: center;
+  color: #ffffff;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 40px;
+  margin-bottom: 80px;
+}
+
+.homePortfolio h2 span {
+  font-weight: 300;
+  font-size: 30px;
+}
+.InnerPortfolio {
+  width: 50%;
+  flex-wrap: wrap;
+  margin: 10px auto;
+}
+.itemWrapperHp {
+  width: 30%;
+  margin: 10px 10px;
+}
+.InnerPortfolio .circleHp {
+  width: 0px;
+  height: 0px;
+  background: cornflowerblue;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  transition: 0.25s;
+  z-index: 1;
+}
+
+.hpLink {
+  text-decoration: none;
+}
+.hpItem:hover .circleHp {
+  width: 400px;
+  transform: translate(-50%, -50%);
+  height: 400px;
+
+  background-color: #4158d0;
+  background-image: linear-gradient(
+    43deg,
+    #4158d0 0%,
+    #c850c0 46%,
+    #ffcc70 100%
+  );
+
+  background-size: 200% 200%;
+
+  -webkit-animation: GradientBg 2s ease infinite;
+  -moz-animation: GradientBg 2s ease infinite;
+  animation: GradientBg 2s ease infinite;
+
+  transition: 0.5s;
+}
+@-webkit-keyframes GradientBg {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@-moz-keyframes GradientBg {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes GradientBg {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.hpDesc {
+  position: relative;
+  z-index: 2;
+}
+.InnerPortfolio .hpItem {
+  background: #121217;
+  width: 100%;
+  overflow: hidden;
+  color: #ffffff;
+  position: relative;
+  text-align: center;
+
+  padding: 40px 10px;
+  border-radius: 10px;
+  transition: 0.5s;
+}
+.InnerPortfolio .hpItem:hover {
+  transform: scale(1.12);
+  transition: 0.5s;
+}
+.InnerPortfolio .hpIcon {
+  font-size: 50px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 2;
+}
+.InnerPortfolio .hpDesc h4 {
+  text-transform: uppercase;
+  font-weight: 300;
+  letter-spacing: 1.5px;
+  font-size: 20px;
+  line-height: 30px;
+}
+.Footer {
+  padding: 60px 0px;
+}
+.innerFooter {
+  text-align: center;
+}
+
+.innerFooter a {
+  text-decoration: none;
+
+  padding: 10px 10px;
+  font-size: 40px !important;
+  transition: s !important;
+}
+.innerFooter a svg {
+  color: #ffffff;
+  transition: 0.5s;
+}
+.innerFooter a:hover svg {
+  transform: scale(1.4);
+  transition: 0.5s;
+}
+.snapicon:hover svg {
+  color: #f7f401 !important;
+}
+.fbicon:hover svg {
+  color: #4064ac;
+}
+.instaicon:hover svg {
+  color: #7033d9;
+}
+.giticon:hover svg {
+  color: #f1c4a9;
+}
+.twiticon:hover svg {
+  color: #1c9cea;
+}
+.LoadingScreen {
+  height: 100vh;
+  background: #000000;
+  padding: 0px !important;
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 1100;
+}
+.LoadingScreenContainer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+#space_box {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+}
+#logHex {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 2;
+}
+.LoadingCenter {
+  position: relative;
+  z-index: 3;
+}
+.LoadingCenter img {
+  width: 100px;
+}
+.LoadingCenter img {
+  animation: saturate 3s infinite;
+}
+@keyframes saturate {
+  50% {
+    filter: saturate(0);
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
+}
+.LoadingCenter h1 {
+  font-size: 20px;
+  margin-top: 30px;
+  color: #000000;
+  padding: 5px 20px;
+  font-family: "Barlow", sans-serif !important;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-align: center;
+  text-transform: uppercase;
+  background: #ffffff;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(178, 128, 239, 1) 50%,
+    rgba(255, 255, 255, 1) 50%
+  );
+  background-size: 200%;
+  animation: loadingText 3s infinite;
+}
+@keyframes loadingText {
+  50% {
+    background-position: 100%;
+  }
+}
+.exitNow {
+  animation: zoomExit 1s;
+  opacity: 0;
+}
+@keyframes zoomExit {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2);
+  }
+}
+@media (max-width: 1025px) and (min-width: 768px) {
+  .InnerPortfolio {
+    width: 70%;
+  }
+  .about {
+    min-height: 80vh;
+  }
+}
+@media (max-width: 768px) {
+  .Banner .maskingLayer {
+    line-height: 150px;
+    letter-spacing: 2px;
+    font-size: 22vw;
+  }
+  .Banner .Welcometext {
+    padding: 0px !important;
+    left: 0px;
+    top: 46%;
+  }
+  .Banner .Welcometext h2 {
+    animation: none;
+    letter-spacing: 1px;
+    font-size: 20px;
+  }
+  .abtdesc img {
+    width: 200px;
+    height: 200px;
+  }
+  .abtdesc p {
+    width: 100%;
+  }
+  .InnerPortfolio {
+    flex-direction: column !important;
+    width: 70%;
+  }
+  .itemWrapperHp {
+    width: 100%;
+    margin: 10px 0px;
+  }
+  #logHex {
+    transform: scale(0.8);
+  }
+  .LoadingCenter img {
+    width: 50px;
+  }
+  .LoadingCenter h1 {
+    font-size: 15px;
+  }
+}
+
+/*Unity Portfolio */
+.mainGameContainer {
+  height: 100vh;
+  width: 100%;
+
+  overflow: hidden;
+}
+.innerGameContainer {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  /* background: #00bef4; */
+  transition: 5s;
+}
+
+.gameBackground {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 100vh;
+  z-index: 1;
+}
+
+.innerGameBackground {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.secondGameBg {
+  position: absolute;
+  bottom: 0px;
+  left: 6295px;
+  z-index: 2;
+  height: 100vh;
+  animation: secGameBgEnter 2s;
+}
+
+@keyframes secGameBgEnter {
+  0% {
+    transform: translateX(500px) translateY(700px);
+  }
+}
+.innerSecBgGame {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.secStaticBg {
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  height: 100%;
+  z-index: 5;
+}
+.secBgHillFront {
+  z-index: 4;
+  position: absolute;
+  left: 200px;
+  bottom: 0px;
+  height: 70%;
+}
+.secBgHillBack {
+  z-index: 3;
+  position: absolute;
+  left: 200px;
+  bottom: 0px;
+  height: 90%;
+}
+.secBgStar {
+  z-index: 2;
+  position: absolute;
+  left: 200px;
+  top: 0px;
+  height: 80%;
+  opacity: 1;
+  animation: BgStarAnim 0.5s infinite;
+}
+.shootingStarContainer {
+  position: absolute;
+  z-index: 2;
+  left: 200px;
+  height: 100%;
+}
+.innerShootingStars {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.shootingStar {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  opacity: 0;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: -1px -2px 19px 6px rgba(255, 255, 255, 0.5);
+  -webkit-box-shadow: -1px -2px 19px 6px rgba(255, 255, 255, 0.5);
+  -moz-box-shadow: -1px -2px 19px 6px rgba(255, 255, 255, 0.5);
+}
+.shootingStar::after {
+  position: absolute;
+  width: 200px;
+  height: 1px;
+  content: "";
+  background: linear-gradient(90deg, transparent, #ffffff);
+  top: 2.5px;
+  left: -200px;
+  border-radius: 20px;
+}
+@keyframes shootingStarAnim {
+  0% {
+    transform: rotate(30deg) translateX(00px);
+  }
+  65% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(30deg) translateX(900px);
+  }
+}
+@keyframes BgStarAnim {
+  50% {
+    opacity: 0.5;
+  }
+}
+.staticGameBg {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  height: 100%;
+  z-index: 1;
+}
+
+.bikeManGame {
+  position: absolute;
+  bottom: 10px;
+  left: 700px;
+  z-index: 2;
+  animation: bikeMove 5s;
+}
+
+.innerBikeman {
+  position: relative;
+  min-width: 330px;
+  min-height: 271px;
+  transform: scale(0.8);
+}
+/* Rick Roll */
+.gameForbiddenButton {
+  position: absolute;
+  left: 500px;
+  bottom: 45px;
+  transform: scale(0.9);
+  z-index: 5;
+}
+.innerForbiddenButton {
+  position: relative;
+  min-height: 170px;
+  min-width: 250px;
+}
+.mforbiddenBanner {
+  position: absolute;
+  z-index: 1;
+  bottom: 0px;
+  left: 0px;
+}
+.mforbiddenButton {
+  position: absolute;
+  bottom: 65px;
+  z-index: 2;
+  left: 180px;
+  animation: forbiddenButtonAnim 0.5s infinite;
+}
+@keyframes forbiddenButtonAnim {
+  50% {
+    transform: scale(1.2);
+  }
+}
+.RickRollContainer {
+  z-index: 5;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+}
+.innerRickRollContainer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.rrGif {
+  position: absolute;
+}
+.rrGif1 {
+  left: 20px;
+}
+.rrGif2 {
+  right: 20px;
+}
+.rrGif3 {
+  bottom: 20px;
+}
+.RickRollContainer h1 {
+  font-size: 50px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #ffffff;
+  animation: RickRollTitleAnim 2s infinite linear;
+}
+@keyframes RickRollTitleAnim {
+  20% {
+    color: red;
+  }
+  25% {
+    transform: scale(2);
+  }
+  50% {
+    color: yellow;
+    transform: scale(1) rotate(360deg);
+  }
+  70% {
+    color: green;
+  }
+  75% {
+    transform: scale(2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+/*Bike Positioning */
+.BikeFwheelOuter {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  z-index: 1;
+}
+.BikeFwheelInner {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  z-index: 2;
+}
+.BikeBwheelOuter {
+  position: absolute;
+  z-index: 1;
+  right: 230px;
+  bottom: 0px;
+}
+.BikeBwheelInner {
+  z-index: 1;
+  position: absolute;
+  right: 246px;
+  bottom: 16px;
+  z-index: 1;
+}
+.BikePipe {
+  position: absolute;
+  bottom: 35px;
+  right: 90px;
+  z-index: 2;
+}
+.BikeEngineFrame {
+  position: absolute;
+  bottom: 45px;
+  right: 90px;
+  z-index: 3;
+}
+.BikeEngine {
+  position: absolute;
+  bottom: 60px;
+  right: 124px;
+  z-index: 2;
+  animation: bikeEngineAnim 1s infinite;
+}
+.BikeBackHandle {
+  position: absolute;
+  z-index: 3;
+  bottom: 40px;
+  right: 245px;
+  z-index: 3;
+}
+
+.BikeFrontHandle {
+  position: absolute;
+  right: 40px;
+  bottom: 45px;
+  z-index: 3;
+}
+.BikeHeadLight {
+  position: absolute;
+  right: 65px;
+  bottom: 110px;
+  z-index: 4;
+}
+.BikeSeat {
+  position: absolute;
+  bottom: 105px;
+  right: 170px;
+  z-index: 5;
+  animation: bikeSeatAnim 1s infinite;
+}
+.BikeFuelTank {
+  position: absolute;
+  right: 90px;
+  bottom: 105px;
+  z-index: 6;
+  animation: bikeFTankAnim 1s infinite;
+}
+.BikeHandle {
+  position: absolute;
+  right: 75px;
+  bottom: 130px;
+  z-index: 7;
+  animation: bikeManLegAnim 1s infinite;
+}
+/*Bike Keyframes */
+@keyframes bikeFTankAnim {
+  50% {
+    bottom: 103px;
+  }
+}
+@keyframes bikeSeatAnim {
+  50% {
+    bottom: 100px;
+  }
+}
+@keyframes bikeEngineAnim {
+  50% {
+    transform: scale(1.1) translateY(2px);
+  }
+}
+/*BikeMan Positioning*/
+.GameBikemanHandB {
+  z-index: 8;
+  position: absolute;
+  bottom: 165px;
+  right: 115px;
+  animation: bikeManLegAnim 1s infinite;
+}
+.GameBikemanBody {
+  z-index: 9;
+  bottom: 140px;
+  right: 155px;
+  position: absolute;
+  animation: bikeManLegAnim 1s infinite;
+}
+.GameBikemanHandF {
+  z-index: 11;
+  position: absolute;
+  right: 115px;
+  bottom: 145px;
+  animation: bikeManLegAnim 1s infinite;
+}
+.GameBikemanHead {
+  position: absolute;
+  z-index: 10;
+  right: 130px;
+  bottom: 220px;
+  animation: bikeManHeadAnim 1s infinite;
+}
+.GameBikemanLeg {
+  position: absolute;
+  bottom: 45px;
+  right: 175px;
+  z-index: 10;
+  animation: bikeManLegAnim 1s infinite;
+}
+.GameBikeSmoke {
+  position: absolute;
+  z-index: 12;
+  bottom: 5px;
+  opacity: 0;
+  right: 220px;
+  transform: scale(0.2);
+  animation: smokeBikeAnim 1s infinite ease-in;
+}
+/*BikeMan Keyframes */
+@keyframes bikeManHeadAnim {
+  50% {
+    transform: translateY(3px) translateX(2px) rotate(10deg);
+  }
+}
+@keyframes bikeManLegAnim {
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+@keyframes smokeBikeAnim {
+  50% {
+    transform: scale(1);
+    opacity: 1;
+    right: 300px;
+    bottom: 30px;
+  }
+  100% {
+    transform: scale(1.5);
+    bottom: 70px;
+    right: 650px;
+    opacity: 0;
+  }
+}
+/*Player */
+.player {
+  z-index: 2;
+  position: absolute;
+  bottom: 5px;
+  left: 10%;
+  transform: scale(0.8);
+}
+.innerPlayer {
+  position: relative;
+  min-height: 300px;
+  min-width: 100px;
+}
+.pBLeg {
+  bottom: 3px;
+  position: absolute;
+  z-index: 1;
+  left: 40px;
+}
+.pFLeg {
+  bottom: 0px;
+  left: 10px;
+  position: absolute;
+  z-index: 2;
+}
+.pHbTop {
+  position: absolute;
+  z-index: 3;
+  bottom: 40%;
+  left: 60px;
+}
+.pHbBot {
+  position: absolute;
+  z-index: 4;
+  bottom: 32%;
+  left: 60px;
+}
+.pBody {
+  bottom: 32%;
+  left: 10px;
+  position: absolute;
+  z-index: 6;
+}
+.pHfTop {
+  position: absolute;
+  z-index: 7;
+  left: 20px;
+  bottom: 40%;
+}
+.pHfBot {
+  position: absolute;
+  z-index: 8;
+  left: 20px;
+  bottom: 32%;
+}
+.pHead {
+  z-index: 9;
+  position: absolute;
+  left: 0px;
+  bottom: 62%;
+}
+
+/*Idle State ANimations */
+.idleState .pBody {
+  animation: idleBodyAnim 1s infinite;
+}
+.idleState .pHead {
+  animation: idleHeadAnim 1s infinite;
+}
+@keyframes idleBodyAnim {
+  50% {
+    transform: scale(1.07);
+  }
+}
+@keyframes idleHeadAnim {
+  50% {
+    transform: rotate(-5deg);
+  }
+}
+/*Walking State ANimation */
+.walkState .pFLeg {
+  animation: walkFlegAnim 1s infinite;
+}
+.walkState .pBLeg {
+  animation: walkBlegAnim 1s infinite;
+}
+.walkState .pHfBot {
+  animation: walkHBotAnim 1s infinite;
+}
+.walkState .pHfTop {
+  animation: walkHTopAnim 1s infinite;
+}
+.walkState .pHbBot {
+  animation: walkHbBotAnim 1s infinite;
+}
+.walkState .pBody {
+  animation: walkBodyAnim 1s infinite;
+}
+.walkState .pHead {
+  animation: walkHeadAnim 1s infinite;
+}
+@keyframes walkHeadAnim {
+  50% {
+    transform: rotate(-5deg) translateY(2px);
+  }
+}
+@keyframes walkBodyAnim {
+  50% {
+    transform: rotate(5deg);
+  }
+}
+@keyframes walkHbBotAnim {
+  50% {
+    transform: rotate(60deg) translateX(-30px) translateY(20px);
+  }
+}
+@keyframes walkHTopAnim {
+  50% {
+    transform: rotate(-30deg) translateX(15px);
+  }
+}
+@keyframes walkHBotAnim {
+  50% {
+    transform: translateY(-25px) translateX(30px) rotate(-60deg);
+  }
+}
+@keyframes walkFlegAnim {
+  0% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(-10deg) translateX(20px);
+  }
+  100% {
+    transform: rotate(10deg);
+  }
+}
+@keyframes walkBlegAnim {
+  0% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(10deg) translateX(-20px);
+  }
+  100% {
+    transform: rotate(-10deg);
+  }
+}
+
+.chatbubbleGame {
+  position: absolute;
+  bottom: 280px;
+  z-index: 4;
+  left: 240px;
+  max-width: 200px;
+  animation: bubbleGameAnim 1s;
+}
+.chatbubbleGame p {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
+  padding: 10px;
+  position: relative;
+}
+.chatbubbleGame p::after {
+  content: "";
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  bottom: -20px;
+  left: -10px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+}
+.chatbubbleGame p::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  bottom: -40px;
+  left: -20px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+}
+@keyframes bubbleGameAnim {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) translateX(-150px) scale(0);
+  }
+}
+.GameBubbleExit {
+  animation: bubblePopOut 1s;
+}
+@keyframes bubblePopOut {
+  100% {
+    opacity: 0;
+    transform: translateY(30px) translateX(-150px) scale(0);
+  }
+}
+.GrandpaExitStart {
+  opacity: 0 !important;
+  animation: grandPaExitGameAnim 3s !important;
+}
+@keyframes grandPaExitGameAnim {
+  0% {
+    opacity: 1;
+  }
+  99% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(2000px);
+  }
+}
+
+.GameSchoolGirl {
+  position: absolute;
+  z-index: 2;
+  bottom: 20px;
+  left: 2400px;
+  transform: scale(0.8);
+}
+.innerSchoolGirl {
+  position: relative;
+  min-height: 245px;
+  min-width: 150px;
+}
+.schoolGirlLeftLeg {
+  z-index: 1;
+  position: absolute;
+  bottom: 0px;
+  right: 85px;
+}
+.schoolGirlRightLeg {
+  position: absolute;
+  z-index: 2;
+  bottom: 0px;
+  right: 55px;
+}
+.schoolGirlBody {
+  z-index: 3;
+  position: absolute;
+  bottom: 70px;
+  right: 50px;
+  animation: schoolGirlBodyAnim 1s infinite;
+}
+.schoolGirlHead {
+  z-index: 4;
+  position: absolute;
+  bottom: 165px;
+  right: 38px;
+  animation: schoolGirlHeadAnim 1s infinite;
+}
+.schoolGirlEyeLeft {
+  z-index: 5;
+  position: absolute;
+  bottom: 195px;
+  right: 91px;
+  animation: schoolGirlEyeAnim 2s infinite;
+}
+.schoolGirlEyeRight {
+  z-index: 6;
+  position: absolute;
+  bottom: 195px;
+  right: 65px;
+  animation: schoolGirlEyeAnim 2s infinite;
+}
+.schoolGirlHandRight {
+  z-index: 7;
+  position: absolute;
+  bottom: 85px;
+  right: 37px;
+}
+.schoolGirlHandLeft {
+  z-index: 8;
+  position: absolute;
+  bottom: 85px;
+  right: 105px;
+}
+@keyframes schoolGirlHeadAnim {
+  50% {
+    transform: translateY(3px);
+  }
+}
+@keyframes schoolGirlBodyAnim {
+  50% {
+    transform: scale(1.05);
+  }
+}
+@keyframes schoolGirlEyeAnim {
+  0% {
+    transform: translateX(3px) scale(1.1);
+  }
+  25% {
+    transform: scale(1) translateY(3px);
+  }
+  50% {
+    transform: translateX(-3px) scale(1.1);
+  }
+  75% {
+    transform: scale(1) translateY(3px);
+  }
+  100% {
+    transform: translateX(3px) scale(1.1);
+  }
+}
+
+.GameHotAirBalloon {
+  position: absolute;
+  z-index: 3;
+  bottom: 50px;
+  left: 3100px;
+}
+.innerHotAirBalloon {
+  position: relative;
+  min-width: 400px;
+  min-height: 600px;
+}
+.HABalloonCasket {
+  position: absolute;
+  bottom: -20px;
+  right: 110px;
+  z-index: 2;
+  animation: HABalloonAnim 1s infinite;
+}
+.HABalloonWire {
+  position: absolute;
+  z-index: 1;
+  right: 110px;
+  bottom: 80px;
+  animation: HAwireAnim 1s infinite;
+}
+.HABalloon {
+  position: absolute;
+  z-index: 2;
+  bottom: 200px;
+  right: 0px;
+  animation: HABalloonAnim 1s infinite;
+}
+@keyframes HAwireAnim {
+  0% {
+    transform: skew(2deg);
+  }
+  50% {
+    transform: skew(-2deg);
+  }
+  100% {
+    transform: skew(2deg);
+  }
+}
+@keyframes HABalloonAnim {
+  50% {
+    transform: translatey(5px) scale(1.01) rotate(1deg);
+  }
+}
+
+/* Star Girl */
+.GameStarGirl {
+  position: absolute;
+  left: 1700px;
+  bottom: -30px;
+  z-index: 5;
+  transform: scale(0.58);
+}
+.innerGameStarGirl {
+  min-height: 335px;
+  min-width: 180px;
+
+  position: relative;
+}
+.starGirlLeg {
+  position: absolute;
+  bottom: 0px;
+  left: 45px;
+  z-index: 1;
+}
+.starGirlBody {
+  position: absolute;
+  bottom: 80px;
+  z-index: 2;
+  left: 25px;
+  animation: starGirlBodyAnim 1s infinite;
+}
+.starGirlHead {
+  position: absolute;
+  bottom: 165px;
+  left: 0px;
+  z-index: 3;
+  animation: starGirlHeadAnim 1s infinite;
+}
+.starGirlHands {
+  position: absolute;
+  left: 105px;
+  bottom: 220px;
+  z-index: 4;
+  animation: starGirlHandAnim 1s infinite;
+}
+@keyframes starGirlBodyAnim {
+  50% {
+    transform: scale(1.03) rotate(1deg);
+  }
+}
+@keyframes starGirlHandAnim {
+  50% {
+    transform: translateX(5px) rotate(5deg);
+  }
+}
+@keyframes starGirlHeadAnim {
+  50% {
+    transform: translateY(3px) rotate(-2deg);
+  }
+}
+/*Portfolio Items */
+.upfItem {
+  position: absolute;
+  z-index: 3;
+  top: 100px;
+}
+.blockDash {
+  left: 1330px;
+}
+.flapRojin {
+  left: 2930px;
+}
+.debrisSamata {
+  left: 5200px;
+}
+.NinJump {
+  left: 6000px;
+}
+.ghostRunner {
+  left: 9420px;
+}
+.ghostRunner img {
+  border-radius: 30px;
+  border: solid 5px #ffffff;
+}
+.debrisSamata img {
+  border-radius: 30px;
+  border: solid 5px #ffffff;
+}
+.upfItem img {
+  width: 180px;
+  transition: 0.5s;
+
+  animation: upfItemAnim 1s infinite;
+}
+@keyframes upfItemAnim {
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+.isFlyingStateHB {
+  animation: HBFlyAnim 2s infinite;
+}
+@keyframes HBFlyAnim {
+  100% {
+    transform: translateY(100%) translateX(-500px);
+  }
+}
+.mainSkyContainer {
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  z-index: 1;
+}
+.innerCloudContainer {
+  position: relative;
+  width: 100%;
+  height: 200px;
+}
+.GameSky {
+  width: 100%;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  height: 200px;
+}
+.GameSkySC {
+  background: url("./images/assets/cloud/smallCloudBg.png");
+  animation: skyScroll 2s infinite linear;
+  z-index: 3;
+  background-position: left bottom;
+  background-size: 50%;
+  background-repeat: repeat-x;
+}
+.GameSkySCS {
+  background: url("./images/assets/cloud/smallCloudBg.png");
+  animation: skyScroll 4s infinite linear;
+  z-index: 2;
+  bottom: 40px;
+  background-position: left bottom;
+  background-size: 50%;
+  background-repeat: repeat-x;
+}
+.GameSkyBC {
+  background: url("./images/assets/cloud/bigCloudBg.png");
+  animation: skyScroll 5s infinite linear;
+  z-index: 1;
+
+  background-position: left bottom;
+  background-size: 50%;
+  background-repeat: repeat-x;
+}
+
+@keyframes skyScroll {
+  50% {
+    transform: translateY(30px);
+  }
+  100% {
+    background-position-x: -100%;
+  }
+}
+.appearSky {
+  animation: skyAppear 1s;
+}
+.SkyMovingOut {
+  animation: skyOut 2s infinite;
+}
+@keyframes skyOut {
+  100% {
+    transform: translateY(-1000px) translateX(-500px);
+    opacity: 0;
+  }
+}
+@keyframes skyAppear {
+  0% {
+    transform: translateX(1920px) translateY(-1000px);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+.bird {
+  background-image: url("./images/assets/birds.svg");
+  background-size: auto 100%;
+  width: 88px !important;
+  transform: scale(1.5);
+  height: 125px !important;
+
+  animation: fly-cycle 1s infinite steps(10);
+}
+.bird-container {
+  position: absolute;
+  top: 20%;
+  left: -10%;
+  filter: contrast(0.8);
+  transform: scale(0) translateX(-10vw);
+
+  z-index: 2;
+  animation: 5s fright infinite linear;
+}
+@keyframes fly-cycle {
+  100% {
+    background-position: -900px 0;
+  }
+}
+
+@keyframes fright {
+  0% {
+    transform: scale(0.3) translateX(-10vw);
+  }
+
+  10% {
+    transform: translateY(2vh) translateX(10vw) scale(0.4);
+  }
+
+  20% {
+    transform: translateY(0vh) translateX(30vw) scale(0.5);
+  }
+
+  30% {
+    transform: translateY(4vh) translateX(50vw) scale(0.6);
+  }
+
+  40% {
+    transform: translateY(2vh) translateX(70vw) scale(0.6);
+  }
+
+  50% {
+    transform: translateY(0vh) translateX(90vw) scale(0.6);
+  }
+
+  60% {
+    transform: translateY(0vh) translateX(110vw) scale(0.6);
+  }
+
+  100% {
+    transform: translateY(0vh) translateX(110vw) scale(0.6);
+  }
+}
+.moveButton {
+  position: absolute;
+  z-index: 60;
+  bottom: 50%;
+  transform: translateY(50%);
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  font-size: 20px;
+}
+
+@media (max-width: 768px) {
+  .staticGameBg {
+    height: 92%;
+  }
+  .GameSky {
+    background-size: 300%;
+    height: 250px;
+    background-position: bottom left;
+  }
+  .GameSkyBC {
+    animation: mobileSkyAnim 10s infinite linear;
+  }
+  .GameSkySC {
+    animation: mobileSkyAnim 7s infinite linear;
+  }
+  .GameSkySCS {
+    animation: mobileSkyAnim 5s infinite linear;
+  }
+  @keyframes mobileSkyAnim {
+    100% {
+      background-position-x: 300%;
+    }
+  }
+  .secStaticBg {
+    height: 92%;
+  }
+  .chatbubbleGame {
+    left: 20%;
+    bottom: 35%;
+  }
+  .chatbubbleGame p::after {
+    left: 0px;
+  }
+  .chatbubbleGame p::before {
+    left: 0px;
+  }
+  .GameHotAirBalloon {
+    transform: scale(0.95) translateX(-115px) translateY(10px);
+  }
+}
+@media (max-width: 768px) and (max-height: 750px) {
+  .staticGameBg {
+    height: 103%;
+  }
+  .mainSkyContainer {
+    transform: scale(1.5) translateY(-20px);
+  }
+  .secStaticBg {
+    height: 103%;
+  }
+  .chatbubbleGame {
+    bottom: 40%;
+    font-size: 14px;
+  }
+}
+@media (max-width: 768px) and (max-height: 670px) {
+  .staticGameBg {
+    height: 113%;
+  }
+  .mainSkyContainer {
+    transform: scale(1.5) translateY(-20px);
+  }
+  .secStaticBg {
+    height: 113%;
+  }
+}
+@media (max-width: 768px) and (max-height: 650px) {
+  .staticGameBg {
+    height: 118%;
+  }
+  .mainSkyContainer {
+    transform: scale(1.5) translateY(-20px);
+  }
+  .secStaticBg {
+    height: 118%;
+  }
+  .chatbubbleGame {
+    bottom: 45%;
+    font-size: 14px;
+  }
+}
+@media (max-width: 768px) and (max-height: 570px) {
+  .staticGameBg {
+    height: 132%;
+  }
+  .mainSkyContainer {
+    transform: scale(1.5) translateY(-20px);
+  }
+  .secStaticBg {
+    height: 132%;
+  }
+  .chatbubbleGame {
+    bottom: 45%;
+    font-size: 12px;
+  }
+}
+/*1366*768 */
+@media (max-width: 1370px) and (min-width: 770px) and (max-height: 770px) {
+  .staticGameBg {
+    height: 115%;
+  }
+
+  .secStaticBg {
+    height: 114%;
+  }
+  .GameHotAirBalloon {
+    transform: translateX(-15px);
+  }
+}
+/*IPAD PRO */
+@media (max-width: 1100px) and (min-width: 768px) and (max-height: 1370px) and (min-height: 900px) {
+  .staticGameBg {
+    height: 55%;
+  }
+  .mainSkyContainer {
+    transform: scale(1.5) translateY(-20px);
+  }
+  .secStaticBg {
+    height: 55%;
+  }
+  .GameHotAirBalloon {
+    transform: translateX(-50px);
+  }
+}
+
+/* Web Portfolio */
+.WebPortfolioItems {
+  padding: 100px 10%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+.innerWebPortfolioItems {
+  position: relative;
+}
+
+.nextButtonWpf {
+  position: absolute;
+  right: -100px;
+  font-size: 30px;
+  color: #ffffff;
+  top: 35%;
+}
+.prevButtonWpf {
+  position: absolute;
+  left: -100px;
+  font-size: 30px;
+  color: #ffffff;
+  top: 35%;
+}
+@keyframes wpfChangeButtonAnim {
+  50% {
+    transform: translateX(20px);
+  }
+}
+.wpfItem .mockupWeb {
+  position: relative;
+  width: 50%;
+  transition: 0.5s;
+}
+.wpfItem .mockupMobile {
+  width: 100%;
+  position: relative;
+  text-align: center;
+  z-index: 2;
+}
+.wpfItem .mockupSiteMobile {
+  /* border-top: solid 15px #1e1e1f; */
+  position: absolute;
+  background-size: cover;
+  top: 2.35%;
+  left: 27.5%;
+  height: 83%;
+  width: 44.25%;
+  z-index: 1;
+  background-position: top;
+  transition: 1s;
+  overflow: hidden;
+  border-radius: 30px;
+}
+.mockupWeb:hover .mockupSiteMobile {
+  background-position: bottom;
+  transition: 20s;
+}
+.wpfItem .mockupMobile img {
+  width: 50%;
+}
+.wpfItem .mockupDesktop {
+  position: relative;
+  z-index: 2;
+}
+.wpfItem .mockupSiteDesktop {
+  position: absolute;
+  background-size: cover;
+  top: 6.25%;
+  left: 13%;
+  height: 61%;
+  width: 74.25%;
+  z-index: 1;
+  background-position: top;
+  transition: 1s;
+  overflow: hidden;
+}
+.wpfItem .mockupDesktop img {
+  width: 100%;
+}
+.wpfItem .mockupWeb:hover .mockupSiteDesktop {
+  background-position: bottom;
+  transition: 10s;
+}
+.wpfItem .deviceChange .devIcon {
+  background: #121217;
+  width: 60px;
+  margin: 20px 0px 0px 0px;
+  height: 60px;
+  border-radius: 50%;
+  color: #ffffff;
+  font-size: 20px;
+}
+.wpfItem .designInfo {
+  padding-left: 7%;
+  width: 60%;
+  font-family: "Lato", sans-serif;
+}
+.wpfItem .designInfo h1 {
+  font-family: "Montserrat", sans-serif;
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+.wpfItem {
+  color: #999999;
+}
+.scpItemColor {
+  width: 15px;
+  height: 15px;
+  background: #ffffff;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.wpfItem .designInfo a {
+  background: #6495ed;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 10px 20px;
+}
+.mockupContainerDesktop {
+  animation: deviceEnterAnim 1s;
+}
+.mockupContainerMobile {
+  animation: deviceEnterAnim 1s;
+}
+.deviceChange .active {
+  background: #6495ed !important;
+}
+@keyframes deviceEnterAnim {
+  0% {
+    transform: translateX(-100%) scale(0) rotate(-20deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0px) scale(1);
+    opacity: 1;
+  }
+}
+.startChangingItem .mockupWeb {
+  animation: moveDeviceLeft 0.5s;
+}
+.startChangingItem .designInfo {
+  animation: moveInfoRight 0.5s;
+}
+@keyframes moveDeviceLeft {
+  100% {
+    transform: translateX(-100%) scale(0) rotate(-20deg);
+    opacity: 0;
+  }
+}
+@keyframes moveInfoRight {
+  100% {
+    transform: translateX(100%) scale(0) rotate(20deg);
+    opacity: 0;
+  }
+}
+.notChangingItem .mockupWeb {
+  animation: deviceEnterAnim 0.5s;
+}
+.notChangingItem .designInfo {
+  animation: InfoEnterAnim 0.5s;
+}
+@keyframes InfoEnterAnim {
+  0% {
+    transform: translateX(100%) scale(0) rotate(20deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0px) scale(1);
+    opacity: 1;
+  }
+}
+.indexReachedDisplay {
+  color: #ffffff;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 3px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+@media (max-width: 1025px) {
+  .wpfItem {
+    flex-direction: column !important;
+  }
+  .WebPortfolioItems {
+    padding: 60px 10px;
+  }
+  .mockupWeb {
+    width: 100% !important;
+  }
+  .designInfo {
+    width: 100% !important;
+    padding: 10px 10px 40px 10px;
+  }
+  .mockupSiteMobile {
+    height: 77.5% !important;
+  }
+  .nextButtonWpf {
+    top: 38%;
+    right: 0px;
+    z-index: 4;
+  }
+  .prevButtonWpf {
+    top: 38%;
+    left: 0px;
+    z-index: 4;
+  }
+}
+
+/*Python Portfolio */
+.PyPfItemContainer {
+  padding: 100px 10%;
+}
+.ppfProject {
+  max-height: 35px;
+  overflow: hidden;
+  position: relative;
+}
+.ppfItem {
+  animation: pyProEnterAnim 1s;
+}
+@keyframes pyProEnterAnim {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.ppfProject a,
+.ppfProject span {
+  font-size: 18px;
+  text-decoration: none;
+  color: #ffffff !important;
+  padding: 10px 15px;
+  font-family: "Montserrat", sans-serif;
+
+  display: inline-block;
+  transition: 0.5s;
+  font-weight: 300;
+}
+.ppfProject span {
+  position: absolute;
+  left: 0px;
+  z-index: 1;
+  opacity: 0;
+}
+.ppfProject .active {
+  color: cornflowerblue !important;
+}
+.ppfProject:hover a {
+  color: cornflowerblue !important;
+  position: relative;
+  z-index: 2;
+  transition: 0.5s;
+  animation: moveLinkAnim 0.5s;
+}
+.ppfProject:hover span {
+  color: cornflowerblue !important;
+  opacity: 0;
+  animation: moveHideAnim 0.5s;
+  animation-delay: 0.3s;
+}
+
+@keyframes moveHideAnim {
+  0% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-15px);
+    opacity: 0;
+    color: cornflowerblue;
+  }
+}
+@keyframes moveLinkAnim {
+  50% {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  50.5% {
+    transform: translateY(10px);
+    opacity: 1;
+  }
+}
+.innerPyPfItems {
+  padding: 80px 0px;
+}
+.ppfItem .imagePyPro {
+  width: 43%;
+}
+.ppfItem .descPyPro {
+  width: 57%;
+  color: #929292;
+  line-height: 30px;
+}
+.descPyPro h2 {
+  font-family: "Montserrat", sans-serif;
+  color: #ffffff;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+.descPyPro p {
+  font-family: "Lato", sans-serif;
+}
+.imagePyPro {
+  text-align: center;
+}
+.imagePyPro img {
+  width: 80%;
+  margin: 5px 0px;
+}
+
+.descPyPro b {
+  color: #ffffff;
+}
+.descPyPro p li {
+  margin-top: 5px;
+}
+.descPyPro h4 {
+  font-family: "Montserrat", sans-serif;
+  color: #ffffff;
+  font-weight: 300;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+.descPyPro a {
+  text-decoration: none;
+}
+.descPyPro a div {
+  background: cornflowerblue;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px;
+  width: fit-content;
+}
+.imagePyPro video {
+  width: 80%;
+}
+.descPyPro p a {
+  color: #929292;
+}
+.exitPyPro {
+  animation: exitAnimPyPro 1s;
+}
+@keyframes exitAnimPyPro {
+  50% {
+    transform: scale(0.4) translateY(-50%);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.5) translateX(-100%) translateY(-50%);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 1025px) and (min-width: 768px) {
+  .ppfItem {
+    flex-direction: column;
+  }
+  .ppfItem img,
+  .ppfItem video {
+    width: 45%;
+    margin: 5px;
+  }
+  .ppfItem .descPyPro,
+  .ppfItem .imagePyPro {
+    width: 100%;
+    padding: 20px 0px;
+  }
+}
+@media (max-width: 1370px) and (min-width: 1026px) {
+  .ppfItem .descPyPro {
+    line-height: 25px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .ppfItem {
+    flex-direction: column;
+  }
+  .ppfItem .descPyPro,
+  .ppfItem .imagePyPro {
+    width: 100%;
+    padding: 20px 0px;
+  }
+  .ppfItem img {
+    width: 100%;
+  }
+  .ppfProject a,
+  .ppfProject span {
+    font-size: 15px;
+    padding: 2px 5px;
+  }
+  .PyPfItemContainer {
+    padding-bottom: 0px;
+  }
+}
+
+/*Photography Portfolio */
+
+.photographyBanner {
+  height: 100vh;
+  width: 100%;
+  background: #ffffff;
+  padding: 0px;
+  overflow: hidden;
+}
+.innerPhotographyBanner {
+  height: 100%;
+  width: 100%;
+}
+.pBannerText {
+  width: 50%;
+  padding: 0px 10%;
+  height: 100%;
+  border-bottom: dashed 1px #1f1f1f;
+}
+.pBannerText h1 {
+  font-size: 60px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  margin-bottom: 30px;
+  animation: pBannerTitleEnter 1s;
+}
+@keyframes pBannerTitleEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  70% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+.pBannerText p {
+  font-family: "Lato", sans-serif;
+  line-height: 30px;
+  margin-bottom: 30px;
+}
+.pBannerText a {
+  color: #1f1f1f;
+  text-decoration: none;
+  border: solid 1px #1f1f1f;
+  transition: 0.5s;
+  padding: 7px 15px;
+  animation: pbuttonAppear 1s;
+}
+@keyframes pbuttonAppear {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.pBannerText a:hover {
+  background: #1f1f1f;
+  color: #ffffff;
+  transition: 0.5s;
+}
+.pBannerImage {
+  width: 50%;
+  position: relative;
+  height: 100%;
+  border-bottom: dashed 1px #1f1f1f;
+}
+.pBannerTop {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+}
+.pBannerCenter {
+  position: absolute;
+
+  top: 22.35%;
+  left: 0px;
+  width: 100%;
+}
+.pBannerBottom {
+  position: absolute;
+
+  top: 67.2%;
+  left: 0px;
+  width: 100%;
+}
+.flickeringCursor {
+  animation: flicker 1s infinite;
+}
+@keyframes flicker {
+  50% {
+    opacity: 0;
+  }
+}
+
+.photographyPfItems {
+  background: #ffffff;
+  width: 100%;
+  padding: 60px 10%;
+}
+.photographyPfItems h2 {
+  font-size: 50px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.phItem {
+  width: 100%;
+  margin: 20px 0px;
+  border: solid 10px #ffffff;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition: 0.5s;
+}
+.phItem .bwimg {
+  width: 100%;
+  filter: saturate(0);
+  transition: 0.5s;
+}
+.phItem:hover {
+  transform: scale(1.05);
+  transition: 0.5s;
+}
+.phItem .bwimg:hover {
+  filter: saturate(1);
+  transition: 0.5s;
+}
+@media (max-width: 1370px) and (min-width: 1025px) {
+  .pBannerText {
+    padding: 0px 7%;
+  }
+}
+.photographyImageViewer {
+  position: fixed;
+  z-index: 150;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  animation: imageViewerPopUp 0.5s;
+}
+
+.photographyImageViewer img {
+  height: 100%;
+  border: solid 10px #ffffff;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.innerImageViewer {
+  width: 100%;
+  height: 100%;
+}
+@keyframes imageViewerPopUp {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.imageContainerIV {
+  position: relative;
+  height: 80%;
+}
+.CloseButtonImageViewer {
+  position: absolute;
+  top: 15px;
+  font-size: 25px;
+  right: 15px;
+  color: #ffffff;
+}
+@media (max-width: 1025px) and (min-width: 768px) {
+  .photographyBanner {
+    height: 80vh;
+  }
+  .innerPhotographyBanner {
+    flex-direction: column-reverse !important;
+  }
+  .pBannerText {
+    position: absolute;
+    z-index: 2;
+    height: fit-content;
+    top: 40%;
+    transform: translateY(-50%);
+
+    width: 80%;
+    color: #ffffff !important;
+  }
+  .pBannerImage {
+    width: 100%;
+  }
+  .pBannerTop {
+    width: 100%;
+  }
+  .pBannerCenter {
+    top: 20.85%;
+    width: 100%;
+  }
+  .pBannerBottom {
+    width: 100%;
+    top: 62.8%;
+  }
+  .imageContainerIV {
+    width: 80%;
+    height: fit-content;
+  }
+  .imageContainerIV img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 750px) {
+  .imageContainerIV {
+    width: 90%;
+    height: fit-content;
+  }
+  .imageContainerIV img {
+    width: 100%;
+    height: auto;
+  }
+  .imageRowPhPf {
+    flex-direction: column !important;
+  }
+  .innerPhotographyBanner {
+    flex-direction: column-reverse;
+  }
+  .photographyBanner {
+    height: 100vh;
+  }
+  .pBannerImage {
+    width: 100%;
+    height: 40%;
+    border-bottom: none;
+  }
+  .pBannerTop {
+    width: 100%;
+  }
+  .pBannerCenter {
+    top: 25.5%;
+    width: 100%;
+  }
+  .pBannerBottom {
+    width: 100%;
+    top: 62.8%;
+    display: none;
+  }
+  .pBannerText {
+    padding: 20px 25px 0px 25px;
+    width: 100%;
+    height: 60%;
+  }
+  .pBannerText p {
+    line-height: 20px;
+    font-size: 14px;
+  }
+  .pBannerText h1 {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 768px) and (max-height: 670px) {
+  .pBannerImage {
+    width: 100%;
+    height: 30%;
+    overflow: hidden;
+    border-bottom: none;
+  }
+  .pBannerTop {
+    top: -16%;
+    width: 100%;
+  }
+  .pBannerCenter {
+    top: 25.5%;
+    width: 100%;
+  }
+
+  .pBannerText {
+    padding: 20px 25px 0px 25px;
+    width: 100%;
+    height: 70%;
+  }
+  .pBannerText h1 {
+    font-size: 25px;
+    margin-bottom: 10px;
+  }
+}
+
+/*Menu */
+.menu {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background: #000000;
+  z-index: 1000;
+  animation: menuEnter 0.5s;
+}
+@keyframes menuEnter {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.innerMenu {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.innerMenu #gridCanvas {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+}
+.menuList {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+}
+.menuList a {
+  text-decoration: none;
+  font-size: 50px;
+  color: #ffffff;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: rgb(88, 158, 209);
+  display: block;
+  background: linear-gradient(270deg, #6190e6 50%, rgba(255, 255, 255, 1) 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto !important;
+  background-position: left;
+  transition: 0.25s;
+}
+
+.menuList a:hover {
+  background-position: right;
+  transform: scale(1.2) translateX(10%);
+  transition: 0.25s;
+}
+.MenuI {
+  transition: 0.5s;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+.MenuII {
+  animation: moveMenu 1s;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transition: 1s;
+  transform: translateX(-50%) translateY(-50%);
+}
+@keyframes moveMenu {
+  0% {
+    left: 100vw;
+  }
+  100% {
+    left: 50%;
+  }
+}
+.displaySec .MenuI {
+  left: 10%;
+  transform: scale(0.7) translateX(-50%) translateY(-50%);
+}
+.startMenuExit .MenuI {
+  animation: resizeMenuI 1s;
+}
+@keyframes resizeMenuI {
+  0% {
+    transform: scale(0.7) translateX(-50%) translateY(-50%);
+    left: 10%;
+  }
+  100% {
+    transform: scale(1) translateX(-50%) translateY(-50%);
+    left: 50%;
+  }
+}
+.startMenuExit .MenuII {
+  animation: menuSecExit 1s !important;
+}
+@keyframes menuSecExit {
+  0% {
+    left: 50%;
+  }
+  100% {
+    left: 120vw;
+  }
+}
+@media (max-width: 768px) {
+  .menuList a {
+    font-size: 30px;
+  }
+  .displaySec .MenuI {
+    left: 20%;
+    top: 70%;
+    transform: scale(0.7) translateX(-50%) translateY(-50%);
+  }
+  @keyframes resizeMenuI {
+    0% {
+      transform: scale(0.7) translateX(-50%) translateY(-50%);
+      left: 20%;
+    }
+    100% {
+      transform: scale(1) translateX(-50%) translateY(-50%);
+      left: 50%;
+    }
+  }
+}
+@media (max-width: 500px) and (max-height: 650px) {
+  .menuList a {
+    font-size: 20px;
+  }
+}
+
+/*Mobile Portfolio */
+.mobilePortfolioItems {
+  width: 100%;
+  height: 100vh;
+}
+.mobileInnerPortfolioItems {
+  width: 100%;
+  height: 100%;
+}
+
+.projectTitle {
+  width: 100%;
+  height: 100%;
+}
+.projectTitle button {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 80px;
+  background: transparent;
+  border: none;
+  outline: none;
+}
